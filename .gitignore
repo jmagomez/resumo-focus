@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+# output/focus/*.md são versionados — não ignorar output/
+.env
+
+.vscode/
