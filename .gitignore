@@ -3,5 +3,11 @@ __pycache__/
 *.pyc
 # output/focus/*.md são versionados — não ignorar output/
 .env
+*.key
+*.pem
+*secret*
+*token*
+
+data/
 
 .vscode/
