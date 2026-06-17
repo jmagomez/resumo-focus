@@ -1,8 +1,8 @@
 """Baixa o último boletim Focus em PDF do site do BCB.
 
-O Focus é publicado toda segunda-feira por volta das 8h30 (BRT), com a URL
+O Focus é publicado toda sexta-feira por volta das 8h30 (BRT), com a URL
 seguindo o padrão R{AAAAMMDD}.pdf onde a data é a da publicação. Em semana
-com segunda feriado, o BCB publica na terça — por isso o download tenta
+com feriado, o BCB pode publicar em outro dia — por isso o download tenta
 retroceder dia a dia até 7 vezes antes de desistir.
 """
 
@@ -17,15 +17,6 @@ URL = "https://www.bcb.gov.br/content/focus/focus/R{ymd}.pdf"
 UA = "Mozilla/5.0 (compatible; routine-focus/1.0)"
 
 
-def ultima_segunda(hoje: date) -> date:
-    """Retorna a segunda-feira mais recente estritamente anterior a hoje.
-
-    Se hoje já é segunda, retrocede uma semana (o `or 7` força isso, pois
-    `weekday()` de segunda é 0 e `0 or 7 == 7`).
-    """
-    return hoje - timedelta(days=(hoje.weekday() or 7))
-
-
 def baixar(dest: Path) -> tuple[date, Path]:
     """Baixa o PDF do Focus mais recente para `dest/focus_AAAA-MM-DD.pdf`.
 
@@ -33,7 +24,7 @@ def baixar(dest: Path) -> tuple[date, Path]:
     nenhum PDF for encontrado nos últimos 7 dias.
     """
     dest.mkdir(parents=True, exist_ok=True)
-    candidato = ultima_segunda(date.today())
+    candidato = date.today()
     for _ in range(7):
         ymd = candidato.strftime("%Y%m%d")
         url = URL.format(ymd=ymd)
@@ -44,7 +35,7 @@ def baixar(dest: Path) -> tuple[date, Path]:
             return candidato, arq
         candidato -= timedelta(days=1)
     raise RuntimeError(
-        f"Nenhum PDF do Focus encontrado a partir de {ultima_segunda(date.today())} "
+        f"Nenhum PDF do Focus encontrado a partir de {date.today()} "
         f"retrocedendo 7 dias."
     )
 
