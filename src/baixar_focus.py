@@ -16,6 +16,12 @@ import requests
 URL = "https://www.bcb.gov.br/content/focus/focus/R{ymd}.pdf"
 UA = "Mozilla/5.0 (compatible; routine-focus/1.0)"
 
+def ultima_segunda(d: date) -> date:
+    """Retorna a última segunda-feira estritamente anterior a `d`.
+
+    Se `d` for uma segunda, retorna a segunda da semana anterior.
+    """
+    return d - timedelta(days=d.weekday() or 7)
 
 def baixar(dest: Path) -> tuple[date, Path]:
     """Baixa o PDF do Focus mais recente para `dest/focus_AAAA-MM-DD.pdf`.
