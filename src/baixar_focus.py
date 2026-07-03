@@ -31,7 +31,7 @@ def baixar(dest: Path) -> tuple[date, Path]:
     """
     dest.mkdir(parents=True, exist_ok=True)
     candidato = date.today()
-    for _ in range(7):
+    for _ in range(8):
         ymd = candidato.strftime("%Y%m%d")
         url = URL.format(ymd=ymd)
         resp = requests.get(url, headers={"User-Agent": UA}, timeout=30)
