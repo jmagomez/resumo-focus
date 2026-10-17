@@ -1,9 +1,6 @@
 name: Focus — Download e Extração
 
 on:
-  schedule:
-    # Toda segunda-feira às 12:15 UTC = 09:15 BRT (UTC-3)
-    - cron: '15 12 * * 1'
   workflow_dispatch:
 
 jobs:
