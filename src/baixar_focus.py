@@ -1,6 +1,6 @@
 """Baixa o último boletim Focus em PDF do site do BCB.
 
-O Focus é publicado toda sexta-feira por volta das 8h30 (BRT), com a URL
+O Focus é publicado toda segunda-feira por volta das 8h30 (BRT), com a URL
 seguindo o padrão R{AAAAMMDD}.pdf onde a data é a da publicação. Em semana
 com feriado, o BCB pode publicar em outro dia — por isso o download tenta
 retroceder dia a dia até 7 vezes antes de desistir.
