@@ -140,3 +140,12 @@ procurar o cron aqui não acha.
   nível", "virada de chave", "destrava", "regra de ouro", a construção "não é X,
   é Y", tríades decorativas ("rápido, eficiente e escalável"), e aberturas como
   "Vale ressaltar que" ou "É importante destacar".
+
+## Convenções comuns a todos os pipelines
+
+@CONVENCOES-COMUNS.md
+
+Esse arquivo é uma cópia sincronizada de
+https://github.com/jmagomez/convencoes-claude. Não edite a cópia daqui: a
+próxima sincronização a sobrescreve sem avisar. Mude a fonte, e o workflow
+"Sincronizar convenções" traz a mudança de volta.
